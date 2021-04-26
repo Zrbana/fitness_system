@@ -21,3 +21,4 @@
 
 ## others       
 swagger接口调试地址：localhost:8080/swagger-ui/index.html
+表结构：com.vip.zn.fitness_system.db.sql.createTableInfo.sql
