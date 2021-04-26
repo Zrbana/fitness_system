@@ -23,9 +23,4 @@ public class RequestValidator {
         CheckUtils.assertTrue(req != null && !req.getGender().equals(CardTypeEnum.values()), "不允许的会员卡类型");
         CheckUtils.assertTrue(req != null && req.getGender().equals(null), "性别不允许为空");
     }
-
-    public static void insertIntoTableUserValidator(User user){
-        CheckUtils.assertTrue(StringUtils.isNoneBlank(user.getName()),"会员姓名不能为空");
-        CheckUtils.assertTrue(StringUtils.isNoneBlank(user.getPhoneNumber()),"会员联系方式不能为空");
-    }
 }
