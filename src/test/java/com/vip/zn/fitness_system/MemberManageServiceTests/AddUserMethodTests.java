@@ -53,7 +53,7 @@ public class AddUserMethodTests extends BaseTestNGTestCase {
         user.setCardType(CardTypeEnum.MONTH_CARD);
         WebResult webResult = memberManageController.addUserInfo(user);
         Assert.assertEquals(webResult.getCode(), "200");
-        Assert.assertEquals(webResult.getMsg(), "新增会员信息成功！");
+        Assert.assertEquals(webResult.getMsg(), "新增会员信息成功");
     }
 
     @Test(description = "必填项[姓名]为空")

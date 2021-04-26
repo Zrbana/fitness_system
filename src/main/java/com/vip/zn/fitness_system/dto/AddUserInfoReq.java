@@ -1,6 +1,6 @@
 package com.vip.zn.fitness_system.dto;
 
-import com.vip.zn.fitness_system.enums.CardTypeEnum;
+
 import lombok.Data;
 
 /**
@@ -11,9 +11,6 @@ import lombok.Data;
  */
 
 @Data
-public class AddUserInfoReq {
-    String name;
-    String phoneNumber;
-    Integer gender;
-    CardTypeEnum cardType;
+public class AddUserInfoReq extends UserDto {
+
 }

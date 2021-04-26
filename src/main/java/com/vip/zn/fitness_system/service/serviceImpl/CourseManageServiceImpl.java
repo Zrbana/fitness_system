@@ -1,8 +1,10 @@
 package com.vip.zn.fitness_system.service.serviceImpl;
 
+import com.vip.zn.fitness_system.common.WebResult;
 import com.vip.zn.fitness_system.db.entity.Course;
 import com.vip.zn.fitness_system.dto.CourseDto;
 import com.vip.zn.fitness_system.service.CourseManageService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -13,25 +15,26 @@ import java.util.List;
  * @Date 2021/4/22 12:16
  */
 
-
+@Service
 public class CourseManageServiceImpl implements CourseManageService {
+
     @Override
-    public Course addCourseInfo(CourseDto courseDto) {
+    public WebResult addCourseInfo(CourseDto courseDto) {
         return null;
     }
 
     @Override
-    public Course updateCourseInfo(CourseDto courseDto) {
+    public WebResult updateCourseInfo(CourseDto courseDto) {
         return null;
     }
 
     @Override
-    public void deleteCourseInfo(CourseDto courseDto) {
-
+    public WebResult deleteCourseInfo(Integer id) {
+        return null;
     }
 
     @Override
-    public List<Course> getAllCourseInfo() {
+    public WebResult getAllCourseInfo() {
         return null;
     }
 }

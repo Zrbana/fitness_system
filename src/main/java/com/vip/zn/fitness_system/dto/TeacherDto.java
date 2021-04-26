@@ -1,6 +1,7 @@
 package com.vip.zn.fitness_system.dto;
 
 
+import com.vip.zn.fitness_system.enums.TeacherStatusEnum;
 import lombok.Data;
 
 /**
@@ -30,5 +31,5 @@ public class TeacherDto {
     /**
      * 在职情况 0离职 1正常
      */
-    private Integer status;
+    private TeacherStatusEnum status;
 }

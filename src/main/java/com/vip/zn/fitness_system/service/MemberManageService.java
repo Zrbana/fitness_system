@@ -3,50 +3,33 @@ package com.vip.zn.fitness_system.service;
 
 import com.vip.zn.fitness_system.common.WebResult;
 import com.vip.zn.fitness_system.db.entity.Account;
-import com.vip.zn.fitness_system.db.entity.User;
 import com.vip.zn.fitness_system.dto.AddUserInfoReq;
+import com.vip.zn.fitness_system.dto.GetUserInfoByNameReq;
+import com.vip.zn.fitness_system.dto.GetUserInfoByPhoneNumReq;
+import com.vip.zn.fitness_system.dto.GetUserInfoByCardNumReq;
 
 public interface MemberManageService {
 
-    /**
-     * 登录
-     * @param account
-     */
+    /** 登录 */
     void login(Account account);
 
-    /**
-     * 注册
-     * @param account
-     */
+    /** 注册 */
     void enroll(Account account);
 
     /** 新增会员信息 */
     WebResult addUser(AddUserInfoReq req);
 
-    /**
-     * 修改会员信息
-     * @param user
-     * @return
-     */
-    User updateUserInfo(User user);
+    /** 更新会员信息 */
+    WebResult updateUserInfo(GetUserInfoByPhoneNumReq req);
 
-    /**
-     * 根据姓名查询用户信息
-     * @return
-     */
-    User getUserByName(String name) throws Exception;
+    /** 根据姓名模糊查询用户信息 */
+    WebResult getUserByName(GetUserInfoByNameReq req);
 
-    /**
-     * 根据电话号码查询用户信息
-     * @return
-     */
-    User getUserByPhoneNum(String phoneNum);
+    /** 根据电话号码精确查询用户信息 */
+    WebResult getUserByPhoneNum(GetUserInfoByPhoneNumReq req);
 
-    /**
-     * 根据卡号查询用户信息
-     * @return
-     */
-    User getUserByCardNum(String cardNum);
+    /** 根据卡号模糊查询用户信息 */
+    WebResult getUserByCardNum(GetUserInfoByCardNumReq req);
 
 
 }

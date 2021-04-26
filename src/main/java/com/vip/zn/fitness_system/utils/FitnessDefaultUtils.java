@@ -1,5 +1,6 @@
 package com.vip.zn.fitness_system.utils;
 
+import java.time.LocalDate;
 import java.util.Random;
 
 /**
@@ -23,6 +24,16 @@ public class FitnessDefaultUtils {
      */
     public static String randomCardNum(String prefix) {
         return prefix + generateCode();
+    }
+
+    /**
+     * 生成默认账号
+     *
+     * @param
+     * @return
+     */
+    public static String randomTeacherID() {
+        return LocalDate.now().toString() + generateCode();
     }
 
     /**

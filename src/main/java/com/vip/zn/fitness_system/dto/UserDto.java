@@ -1,5 +1,6 @@
 package com.vip.zn.fitness_system.dto;
 
+import com.vip.zn.fitness_system.enums.CardTypeEnum;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -25,7 +26,7 @@ public class UserDto {
     private LocalDate endTime;
 
     @NotBlank(message = "卡类型不允许为空")
-    private Integer cardType;
+    private CardTypeEnum cardType;
 
     @NotBlank(message = "电话号码不允许为空")
     private String phoneNumber;
