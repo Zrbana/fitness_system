@@ -32,7 +32,7 @@ public class FitnessDefaultUtils {
      * @param
      * @return
      */
-    public static String randomTeacherID() {
+    public static String randomCoachID() {
         return LocalDate.now().toString() + generateCode();
     }
 

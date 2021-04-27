@@ -22,13 +22,13 @@ public interface MemberManageService {
     /** 更新会员信息 */
     WebResult updateUserInfo(GetUserInfoByPhoneNumReq req);
 
-    /** 根据姓名模糊查询用户信息 */
+    /** 根据姓名模糊查询用户信息列表 */
     WebResult getUserByName(GetUserInfoByNameReq req);
 
-    /** 根据电话号码精确查询用户信息 */
+    /** 根据电话号码精确查询用户信息列表 */
     WebResult getUserByPhoneNum(GetUserInfoByPhoneNumReq req);
 
-    /** 根据卡号模糊查询用户信息 */
+    /** 根据卡号模糊查询用户信息列表 */
     WebResult getUserByCardNum(GetUserInfoByCardNumReq req);
 
 

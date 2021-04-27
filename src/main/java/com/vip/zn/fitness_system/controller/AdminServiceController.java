@@ -27,8 +27,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 
 @RestController
-@RequestMapping(value = "/user")
-@Api("")
+@RequestMapping(value = "/account")
+@Api("账户管理接口")
 public class AdminServiceController {
 
     @Autowired
@@ -37,7 +37,7 @@ public class AdminServiceController {
     @Autowired
     JwtUtils jwtUtils;
 
-    @PostMapping("/login")
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
     @ApiOperation("登录")
     public WebResult login(@Validated @RequestBody LoginDto loginDto, HttpServletResponse response) {
         Account account = accountService.getOne(new QueryWrapper<Account>().eq("username", loginDto.getUserName()));
@@ -60,7 +60,7 @@ public class AdminServiceController {
 
     @ApiOperation("登出")
     @RequiresAuthentication
-    @PostMapping("/logout")
+    @RequestMapping(value = "/logout",method = RequestMethod.POST)
     public WebResult logout() {
         SecurityUtils.getSubject().logout();
         return WebResult.buildSucc(null);
