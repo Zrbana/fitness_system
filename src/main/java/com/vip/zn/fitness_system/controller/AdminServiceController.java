@@ -5,8 +5,8 @@ import cn.hutool.crypto.SecureUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.vip.zn.fitness_system.common.JwtUtils;
 import com.vip.zn.fitness_system.common.WebResult;
-import com.vip.zn.fitness_system.db.entity.Account;
-import com.vip.zn.fitness_system.db.service.impl.AccountServiceImpl;
+import com.vip.zn.fitness_system.dbgenerator.entity.Account;
+import com.vip.zn.fitness_system.dbgenerator.service.impl.AccountServiceImpl;
 import com.vip.zn.fitness_system.dto.LoginDto;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -50,14 +50,12 @@ public class AdminServiceController {
         response.setHeader("Authorization", jwt);
         response.setHeader("Access-control-Expose-Headers", "Authorization");
 
-//        return WebResult.buildSuccData(
-//                MapUtil.builder()
-//                        .put("id", account.getId())
-//                        .put("username", account.getUsername())
-//                        .map()
-////        );
-        return null;
-
+        return WebResult.buildSucc(
+                MapUtil.builder()
+                        .put("id", account.getId())
+                        .put("username", account.getUsername())
+                        .map()
+        );
     }
 
     @ApiOperation("登出")
@@ -65,8 +63,7 @@ public class AdminServiceController {
     @PostMapping("/logout")
     public WebResult logout() {
         SecurityUtils.getSubject().logout();
-//        return WebResult.buildSuccData(null);
-        return null;
+        return WebResult.buildSucc(null);
     }
 }
 

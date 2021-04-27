@@ -1,12 +1,10 @@
 package com.vip.zn.fitness_system.service.serviceImpl;
 
 import com.vip.zn.fitness_system.common.WebResult;
-import com.vip.zn.fitness_system.db.entity.Course;
 import com.vip.zn.fitness_system.dto.CourseDto;
 import com.vip.zn.fitness_system.service.CourseManageService;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 /**
  * @ClassName CourseManageService

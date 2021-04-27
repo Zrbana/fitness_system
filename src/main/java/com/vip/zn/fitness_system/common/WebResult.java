@@ -60,6 +60,10 @@ public class WebResult {
         return new WebResult(msg, CODE_SUC, "成功");
     }
 
+    public static WebResult buildSucc(Object data) {
+        return new WebResult("成功", CODE_SUC, data);
+    }
+
     public static WebResult buildSucc(String msg, String code) {
         return new WebResult(msg, "200");
     }

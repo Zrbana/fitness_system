@@ -20,4 +20,5 @@
 |          | 系统首页显示当天的课程信息  | 系统首页显示当天的课程信息                                   |
 
 ## others       
-swagger接口调试地址：localhost:8080/swagger-ui/index.html
+##### swagger接口调试地址：localhost:8080/swagger-ui/index.html
+##### 表结构：com.vip.zn.fitness_system.dbgenerator.sql.createTableInfo.sql

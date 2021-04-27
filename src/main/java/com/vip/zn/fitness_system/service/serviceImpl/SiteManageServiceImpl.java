@@ -2,8 +2,8 @@ package com.vip.zn.fitness_system.service.serviceImpl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.vip.zn.fitness_system.common.WebResult;
-import com.vip.zn.fitness_system.db.entity.Place;
-import com.vip.zn.fitness_system.db.mapper.PlaceMapper;
+import com.vip.zn.fitness_system.dbgenerator.entity.Site;
+import com.vip.zn.fitness_system.dbgenerator.mapper.SiteMapper;
 import com.vip.zn.fitness_system.dto.GetSiteStatusReq;
 import com.vip.zn.fitness_system.dto.SiteDto;
 import com.vip.zn.fitness_system.exception.BizException;
@@ -23,16 +23,16 @@ import org.springframework.stereotype.Service;
 public class SiteManageServiceImpl implements SiteManageService {
 
     @Autowired
-    PlaceMapper placeMapper;
+    SiteMapper siteMapper;
 
     @Override
     public WebResult getSiteStatus(GetSiteStatusReq req) {
-        if (req == null || StringUtils.isBlank(req.getPlaceName())) {
+        if (req == null || StringUtils.isBlank(req.getSiteName())) {
             return WebResult.buildFail("查询条件为空");
         }
         Integer siteStatus;
         try {
-            siteStatus = placeMapper.selectOne(new QueryWrapper<Place>().eq("placeName", req.getPlaceName())).getStatus();
+            siteStatus = siteMapper.selectOne(new QueryWrapper<Site>().eq("siteName", req.getSiteName())).getStatus();
         } catch (BizException e) {
             return WebResult.buildFail("查询失败");
         }

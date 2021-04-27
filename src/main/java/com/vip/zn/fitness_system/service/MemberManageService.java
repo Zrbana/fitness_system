@@ -2,7 +2,7 @@ package com.vip.zn.fitness_system.service;
 
 
 import com.vip.zn.fitness_system.common.WebResult;
-import com.vip.zn.fitness_system.db.entity.Account;
+import com.vip.zn.fitness_system.dbgenerator.entity.Account;
 import com.vip.zn.fitness_system.dto.AddUserInfoReq;
 import com.vip.zn.fitness_system.dto.GetUserInfoByNameReq;
 import com.vip.zn.fitness_system.dto.GetUserInfoByPhoneNumReq;

@@ -1,6 +1,5 @@
 package com.vip.zn.fitness_system.paramsValidator;
 
-import com.vip.zn.fitness_system.db.entity.User;
 import com.vip.zn.fitness_system.dto.AddUserInfoReq;
 import com.vip.zn.fitness_system.enums.CardTypeEnum;
 import com.vip.zn.fitness_system.utils.CheckUtils;

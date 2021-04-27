@@ -2,10 +2,10 @@ package com.vip.zn.fitness_system.service.serviceImpl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.vip.zn.fitness_system.common.WebResult;
-import com.vip.zn.fitness_system.db.entity.Teacher;
-import com.vip.zn.fitness_system.db.mapper.TeacherMapper;
-import com.vip.zn.fitness_system.dto.AddTeacherInfoReq;
-import com.vip.zn.fitness_system.dto.TeacherDto;
+import com.vip.zn.fitness_system.dbgenerator.entity.Coach;
+import com.vip.zn.fitness_system.dbgenerator.mapper.CoachMapper;
+import com.vip.zn.fitness_system.dto.AddCoachInfoReq;
+import com.vip.zn.fitness_system.dto.CoachDto;
 import com.vip.zn.fitness_system.exception.BizException;
 import com.vip.zn.fitness_system.service.TrainerManageService;
 import com.vip.zn.fitness_system.utils.FitnessDefaultUtils;
@@ -25,51 +25,51 @@ import java.util.List;
 @Service
 public class TrainerManageServiceImpl implements TrainerManageService {
     @Autowired
-    TeacherMapper teacherMapper;
+    CoachMapper coachMapper;
 
     @Override
-    public WebResult addTeacher(AddTeacherInfoReq req) {
-        if (StringUtils.isBlank(req.getPhoneNumber()) || StringUtils.isBlank(req.getTeacherName())) {
+    public WebResult addTeacher(AddCoachInfoReq req) {
+        if (StringUtils.isBlank(req.getPhoneNumber()) || StringUtils.isBlank(req.getCoachName())) {
             return WebResult.buildFail("联系方式或姓名不允许为空");
         }
-        Teacher teacher = new Teacher();
+        Coach coach = new Coach();
         try {
-            teacher.setPhoneNumber(req.getPhoneNumber());
-            teacher.setStatus(req.getStatus().getStatusCode());
-            teacher.setTeacherId(FitnessDefaultUtils.randomTeacherID());
-            teacherMapper.insert(teacher);
+            coach.setPhoneNumber(req.getPhoneNumber());
+            coach.setStatus(req.getStatus().getStatusCode());
+            coach.setCoachId(FitnessDefaultUtils.randomTeacherID());
+            coachMapper.insert(coach);
         } catch (BizException e) {
             return WebResult.buildFail("添加私教信息失败");
         }
-        return WebResult.buildSucc("添加私教信息成功", "200", teacher);
+        return WebResult.buildSucc("添加私教信息成功", "200", coach);
     }
 
     @Override
-    public WebResult updateTeacherInfo(TeacherDto teacherDto) {
+    public WebResult updateTeacherInfo(CoachDto teacherDto) {
         return null;
     }
 
     @Override
     public WebResult deleteTeacherInfo(Integer id) {
-        if(id.equals(null)){
+        if (id.equals(null)) {
             return WebResult.buildFail("删除失败");
         }
-        teacherMapper.deleteById(id);
+        coachMapper.deleteById(id);
         return WebResult.buildSucc("删除成功");
     }
 
     @Override
     public WebResult getTeacherInfoByTeacherId(String teacherId) {
         if (teacherId == null || StringUtils.isBlank(teacherId)) {
-           return WebResult.buildFail("查询失败");
-        }
-        List<Teacher> queryList;
-        try {
-           queryList =  teacherMapper.selectList(new QueryWrapper<Teacher>().like("teacherId",teacherId));
-        }catch (BizException e){
             return WebResult.buildFail("查询失败");
         }
-        return WebResult.buildSucc("查询成功","200",queryList);
+        List<Coach> queryList;
+        try {
+            queryList = coachMapper.selectList(new QueryWrapper<Coach>().like("coachId", teacherId));
+        } catch (BizException e) {
+            return WebResult.buildFail("查询失败");
+        }
+        return WebResult.buildSucc("查询成功", "200", queryList);
     }
 
     @Override
@@ -77,25 +77,28 @@ public class TrainerManageServiceImpl implements TrainerManageService {
         if (name == null || StringUtils.isBlank(name)) {
             return WebResult.buildFail("查询失败");
         }
-        List<Teacher> queryList;
+        List<Coach> queryList;
         try {
-            queryList =  teacherMapper.selectList(new QueryWrapper<Teacher>().like("teacherName",name));
-        }catch (BizException e){
+            queryList = coachMapper.selectList(new QueryWrapper<Coach>().like("coachName", name));
+        } catch (BizException e) {
             return WebResult.buildFail("查询失败");
         }
-        return WebResult.buildSucc("查询成功","200",queryList);    }
+        return WebResult.buildSucc("查询成功", "200", queryList);
+    }
+
 
     @Override
     public WebResult getTeacherInfoByPhoneNum(String phoneNum) {
         if (phoneNum == null || StringUtils.isBlank(phoneNum)) {
             return WebResult.buildFail("查询失败");
         }
-        List<Teacher> queryList;
+        List<Coach> queryList;
         try {
-            queryList =  teacherMapper.selectList(new QueryWrapper<Teacher>().like("phoneNumber",phoneNum));
-        }catch (BizException e){
+            queryList = coachMapper.selectList(new QueryWrapper<Coach>().like("phoneNumber", phoneNum));
+        } catch (BizException e) {
             return WebResult.buildFail("查询失败");
         }
-        return WebResult.buildSucc("查询成功","200",queryList);
+        return WebResult.buildSucc("查询成功", "200", queryList);
     }
 }
+

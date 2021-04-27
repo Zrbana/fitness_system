@@ -1,16 +1,15 @@
 package com.vip.zn.fitness_system.service;
 
 import com.vip.zn.fitness_system.common.WebResult;
-import com.vip.zn.fitness_system.dto.AddTeacherInfoReq;
-import com.vip.zn.fitness_system.dto.AddUserInfoReq;
-import com.vip.zn.fitness_system.dto.TeacherDto;
+import com.vip.zn.fitness_system.dto.AddCoachInfoReq;
+import com.vip.zn.fitness_system.dto.CoachDto;
 
 public interface TrainerManageService {
     /** 新增私教信息 */
-    WebResult addTeacher(AddTeacherInfoReq req);
+    WebResult addTeacher(AddCoachInfoReq req);
 
     /** 修改私教信息 */
-    WebResult updateTeacherInfo(TeacherDto teacherDto);
+    WebResult updateTeacherInfo(CoachDto teacherDto);
 
     /** 删除私教信息 */
     WebResult deleteTeacherInfo(Integer id);

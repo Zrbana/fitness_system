@@ -12,6 +12,6 @@ import lombok.Data;
 
 @Data
 public class SiteDto {
-    private String placeName;
+    private String siteName;
     private Integer status;
 }

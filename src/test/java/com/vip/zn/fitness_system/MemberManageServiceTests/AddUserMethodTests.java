@@ -38,10 +38,10 @@ public class AddUserMethodTests extends BaseTestNGTestCase {
         Account account = new Account();
         account.setUsername("na.zhao");
         account.setPassword("123456");
-        AccountDto accountDto = DtoAndEntityConvertor.INSTANCE.entity2AccountDto(account);
-        Assert.assertNotNull(accountDto);
-        Assert.assertEquals(accountDto.getUserName(), account.getUsername());
-        Assert.assertEquals(accountDto.getPassword(), account.getPassword());
+//        AccountDto accountDto = DtoAndEntityConvertor.INSTANCE.entity2AccountDto(account);
+//        Assert.assertNotNull(accountDto);
+//        Assert.assertEquals(accountDto.getUserName(), account.getUsername());
+//        Assert.assertEquals(accountDto.getPassword(), account.getPassword());
     }
 
     @Test(description = "成功添加会员信息")

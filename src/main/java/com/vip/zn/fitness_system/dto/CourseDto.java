@@ -32,4 +32,9 @@ public class CourseDto {
      * 私教id
      */
     private String teacherId;
+
+    /**
+     * 私教姓名
+     */
+    private String teacherName;
 }

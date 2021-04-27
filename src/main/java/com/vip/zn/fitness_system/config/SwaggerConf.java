@@ -60,6 +60,4 @@ public class SwaggerConf implements WebMvcConfigurer {
                 .version("Application Version: " + swaggerProperties.getApplicationVersion() + ", Spring Boot Version: " + SpringBootVersion.getVersion())
                 .build();
     }
-
-
 }
