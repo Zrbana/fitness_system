@@ -1,7 +1,7 @@
 package com.vip.zn.fitness_system.utils;
 
-import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.vip.zn.fitness_system.exception.BizException;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.List;
@@ -48,7 +48,7 @@ public final class CheckUtils {
     /**
      * 判断 objA是否和objB相等,如果不相等,抛出errorMsg
      *
-     * @param <T>
+     * @param
      **/
     public static void assertStrEquals(String strA, String strB, String errMsg) {
         if (!StringUtils.trimToEmpty(strA).equalsIgnoreCase(StringUtils.trimToEmpty(strB))) {

@@ -1,16 +1,17 @@
 package com.vip.zn.fitness_system.db.mapper;
 
-import com.vip.zn.fitness_system.db.entity.Course;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.vip.zn.fitness_system.db.model.Course;
 
-/**
- * <p>
- *  Mapper 接口
- * </p>
- *
- * @author na.zhao
- * @since 2021-04-21
- */
-public interface CourseMapper extends BaseMapper<Course> {
+public interface CourseMapper {
+    int deleteByPrimaryKey(Integer id);
 
+    int insert(Course record);
+
+    int insertSelective(Course record);
+
+    Course selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(Course record);
+
+    int updateByPrimaryKey(Course record);
 }

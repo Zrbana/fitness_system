@@ -1,16 +1,25 @@
 package com.vip.zn.fitness_system.db.mapper;
 
-import com.vip.zn.fitness_system.db.entity.User;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.vip.zn.fitness_system.db.model.User;
 
-/**
- * <p>
- *  Mapper 接口
- * </p>
- *
- * @author na.zhao
- * @since 2021-04-21
- */
-public interface UserMapper extends BaseMapper<User> {
+import java.util.List;
 
+public interface UserMapper {
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(User record);
+
+    int insertSelective(User record);
+
+    User selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(User record);
+
+    int updateByPrimaryKey(User record);
+
+    List<User> selectByName(String name);
+
+    List<User> selectByPhone(String name);
+
+    List<User> selectByCardNum(String name);
 }

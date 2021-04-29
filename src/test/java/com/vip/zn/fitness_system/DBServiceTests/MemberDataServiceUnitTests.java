@@ -1,13 +1,8 @@
 package com.vip.zn.fitness_system.DBServiceTests;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.vip.zn.fitness_system.BaseTestNGTestCase;
-import com.vip.zn.fitness_system.common.WebResult;
-import com.vip.zn.fitness_system.controller.MemberManageController;
-import com.vip.zn.fitness_system.db.entity.User;
-import com.vip.zn.fitness_system.db.mapper.UserMapper;
-import com.vip.zn.fitness_system.db.service.impl.UserServiceImpl;
-import com.vip.zn.fitness_system.dto.AddUserInfoReq;
+import com.vip.zn.fitness_system.db.model.User;
+import com.vip.zn.fitness_system.db.service.MemberDataService;
 import com.vip.zn.fitness_system.enums.CardTypeEnum;
 import com.vip.zn.fitness_system.utils.FitnessDefaultUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +12,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
+
 /**
  * @ClassName MemberDataServiceUnitTests
  * @Description 测试操作数据库的增删改查
@@ -29,59 +27,52 @@ import java.time.LocalDate;
 public class MemberDataServiceUnitTests extends BaseTestNGTestCase {
 
     @Autowired
-    UserServiceImpl userService;
+    MemberDataService memberDataService;
 
-    @Autowired
-    UserMapper userMapper;
-
-    @Autowired
-    MemberManageController memberManageController;
-
-    @Test(description = "插入user表")
-    public void testInsertIntoTableUser() {
+    @Test(description = "向user表插入数据")
+    public void testInsertMethod() {
         User user = new User();
-        user.setName("用户1");
+        user.setName("小仔仔");
         user.setBeginTime(LocalDate.now());
-        user.setEndTime(LocalDate.now());
-        user.setCardNum(FitnessDefaultUtils.randomCardNum("nk"));
-        user.setCardType(0);
-        user.setGender(0);
-        user.setIsExpired(0);
-        user.setPhoneNumber("18792779351");
-        boolean isSave = userService.save(user);
-        Assert.assertEquals(isSave, true);
+        user.setEndTime(LocalDate.now().plusWeeks(1L));
+        user.setCardNum(FitnessDefaultUtils.randomCardNum("zk"));
+        user.setGender((byte) 0);
+        user.setIsExpired((byte) 0);
+        user.setPhoneNumber("123");
+        user.setCardType((byte) 1);
+        int result = memberDataService.insertSelective(user);
+        Assert.assertEquals(result, 1);
     }
 
-    @Test(description = "更新user表")
-    //TODO
-    public void testUpdateTableUser() {
+    @Test(description = "根据名字查询用户列表")
+    public void testQueryByName() {
+        List<User> list = memberDataService.selectByName("小仔仔");
+        Assert.assertNotNull(list);
+    }
+
+    @Test(description = "根据名字查询用户列表")
+    public void testQueryByPhone() {
+        List<User> list = memberDataService.selectByPhone("123");
+        Assert.assertNotNull(list);
+    }
+
+    @Test(description = "更新会员信息")
+    public void testUpdateMethod(){
         User user = new User();
-        userService.update().setSql("update user set name='用户1' where name='newName'");
+        user.setName("旺仔");
+        int res = memberDataService.updateSelective(user);
+        Assert.assertEquals(res,1);
     }
 
-    @Test(description = "按照名字在user表查询单条用户信息----不适用")
-    public void testQueryByNameSingleScore() {
-        //getOne()只能查出一条结果，否则会抛TooManyResultsException异常
-        User queryResult = userService.getOne(new QueryWrapper<User>().eq("name", "赵娜").last("limit 1"));
-        Assert.assertNotNull(queryResult);
-    }
-
-    @Test(description = "查询某一列数据，其他列结果均为Null")
-    public void testQueryByNameManyResult() {
-        QueryWrapper queryWrapper = new QueryWrapper();
-        queryWrapper.select("name");
-        userMapper.selectList(queryWrapper).forEach(logger::info);
-        Assert.assertNotNull(queryWrapper);
-    }
-
-    @Test
-    public void testUserMapperMethod() {
-        AddUserInfoReq req = new AddUserInfoReq();
-        req.setCardType(CardTypeEnum.MONTH_CARD);
-        req.setGender(0);
-        req.setName("陈");
-        req.setPhoneNumber("112233");
-        WebResult webResult = memberManageController.addUserInfo(req);
-        logger.info(webResult.toString());
-    }
 }
+
+
+
+
+
+
+
+
+
+
+

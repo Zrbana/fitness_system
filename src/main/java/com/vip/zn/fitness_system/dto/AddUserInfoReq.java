@@ -11,6 +11,9 @@ import lombok.Data;
  */
 
 @Data
-public class AddUserInfoReq extends UserDto {
-
+public class AddUserInfoReq {
+    private String name;
+    private Byte cardType;
+    private String phoneNumber;
+    private Byte gender;
 }

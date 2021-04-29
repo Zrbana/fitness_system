@@ -1,6 +1,5 @@
 package com.vip.zn.fitness_system.dto;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 /**

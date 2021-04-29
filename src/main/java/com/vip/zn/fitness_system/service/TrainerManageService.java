@@ -3,7 +3,9 @@ package com.vip.zn.fitness_system.service;
 import com.vip.zn.fitness_system.common.WebResult;
 import com.vip.zn.fitness_system.dto.AddCoachInfoReq;
 import com.vip.zn.fitness_system.dto.CoachDto;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface TrainerManageService {
     /** 新增私教信息 */
     WebResult addTeacher(AddCoachInfoReq req);

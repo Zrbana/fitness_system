@@ -3,7 +3,9 @@ package com.vip.zn.fitness_system.service;
 import com.vip.zn.fitness_system.common.WebResult;
 import com.vip.zn.fitness_system.dto.GetSiteStatusReq;
 import com.vip.zn.fitness_system.dto.SiteDto;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface SiteManageService {
 
     /**

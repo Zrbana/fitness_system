@@ -10,5 +10,7 @@ import lombok.Data;
  */
 
 @Data
-public class AddCoachInfoReq extends CoachDto{
+public class AddCoachInfoReq {
+    private String name;
+    private String phoneNumber;
 }

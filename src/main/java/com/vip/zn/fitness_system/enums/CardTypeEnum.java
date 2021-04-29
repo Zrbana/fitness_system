@@ -9,16 +9,16 @@ package com.vip.zn.fitness_system.enums;
  */
 
 public enum CardTypeEnum {
-    YEAR_CARD(0, "年卡"),
-    SEASON_CARD(1, "季卡"),
-    MONTH_CARD(2, "月卡"),
-    WEEK_CARD(3, "周卡");
+    YEAR_CARD((byte)0, "年卡"),
+    SEASON_CARD((byte)1, "季卡"),
+    MONTH_CARD((byte)2, "月卡"),
+    WEEK_CARD((byte)3, "周卡");
 
-    private Integer cardCode;
+    private Byte cardCode;
     private String cardName;
 
 
-    public Integer getCardType() {
+    public Byte getCardCode() {
         return cardCode;
     }
 
@@ -26,7 +26,7 @@ public enum CardTypeEnum {
         return cardName;
     }
 
-    CardTypeEnum(Integer cardType, String cardName) {
+    CardTypeEnum(Byte cardType, String cardName) {
         this.cardCode = cardType;
         this.cardName = cardName;
     }

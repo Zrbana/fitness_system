@@ -1,11 +1,7 @@
 package com.vip.zn.fitness_system.controller;
 
 import com.vip.zn.fitness_system.common.WebResult;
-import com.vip.zn.fitness_system.dto.AddUserInfoReq;
-import com.vip.zn.fitness_system.dto.GetUserInfoByNameReq;
-import com.vip.zn.fitness_system.dto.GetUserInfoByPhoneNumReq;
-import com.vip.zn.fitness_system.dto.UserDto;
-import com.vip.zn.fitness_system.dto.GetUserInfoByCardNumReq;
+import com.vip.zn.fitness_system.dto.*;
 import com.vip.zn.fitness_system.service.MemberManageService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -37,25 +33,29 @@ public class MemberManageController {
 
     @ApiOperation("修改会员信息")
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public WebResult updateUserInfo(UserDto user) {
+    @ResponseBody
+    public WebResult updateUserInfo(@RequestBody UserDto user) {
         return null;
     }
 
     @ApiOperation("根据姓名查询会员详细信息")
     @RequestMapping(value = "/getInfoByName", method = RequestMethod.POST)
-    public WebResult getUserInfoByName(GetUserInfoByNameReq req) {
-        return memberManageService.getUserByName(req);
+    @ResponseBody
+    public WebResult getUserInfoByName(@RequestBody String name) {
+        return memberManageService.getUserByName(name);
     }
 
     @ApiOperation("根据电话号码查询会员详细信息")
     @RequestMapping(value = "/getInfoByPhone", method = RequestMethod.POST)
-    public WebResult getUserInfoByPhoneNum(GetUserInfoByPhoneNumReq req) {
-        return memberManageService.getUserByPhoneNum(req);
+    @ResponseBody
+    public WebResult getUserInfoByPhoneNum(@RequestBody String phoneNumber) {
+        return memberManageService.getUserByPhoneNum(phoneNumber);
     }
 
     @ApiOperation("根据卡号模糊查询会员详细信息")
     @RequestMapping(value = "/getInfoByCardNum", method = RequestMethod.POST)
-    public WebResult getUserInfoByCardNum(GetUserInfoByCardNumReq req) {
-        return memberManageService.getUserByCardNum(req);
+    @ResponseBody
+    public WebResult getUserInfoByCardNum(@RequestBody String cardNumber) {
+        return memberManageService.getUserByCardNum(cardNumber);
     }
 }
