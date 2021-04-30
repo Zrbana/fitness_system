@@ -18,7 +18,6 @@ import com.vip.zn.fitness_system.service.MemberManageService;
 import com.vip.zn.fitness_system.utils.CheckUtils;
 import com.vip.zn.fitness_system.utils.FitnessDefaultUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.ibatis.exceptions.PersistenceException;
 import org.mybatis.spring.MyBatisSystemException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -62,7 +61,6 @@ public class MemberManageServiceImpl implements MemberManageService {
                         .put("username", account.getUsername())
                         .map()
         );
-
     }
 
     @Override
@@ -72,9 +70,9 @@ public class MemberManageServiceImpl implements MemberManageService {
         }
         Account account = new Account();
         account.setUsername(accountDto.getUserName());
-        //TODO
+        account.setPassword(SecureUtil.md5(accountDto.getPassword()));
         try {
-            accountDataService.insert(account);
+            accountDataService.insertSelective(account);
         } catch (BizException e) {
             return WebResult.buildFail("注册失败");
         }
@@ -82,7 +80,7 @@ public class MemberManageServiceImpl implements MemberManageService {
     }
 
     @Override
-    public WebResult addUser(AddUserInfoReq req) {
+    public WebResult addOrUpdateUser(AddUserInfoReq req) {
         CheckUtils.assertTrue(req != null && StringUtils.isNotBlank(req.getName()), "会员姓名不能为空");
         CheckUtils.assertTrue(req != null && StringUtils.isNotBlank(req.getPhoneNumber()), "会员联系方式不能为空");
         CheckUtils.assertTrue(req != null && !req.getCardType().equals(CardTypeEnum.values()), "不允许的会员卡类型");
@@ -114,7 +112,7 @@ public class MemberManageServiceImpl implements MemberManageService {
             userInfo.setEndTime(LocalDate.now().plusYears(1L));
         }
         try {
-            memberDataService.insertSelective(userInfo);
+            memberDataService.insertOrUpdate(userInfo);
         } catch (BizException e) {
             return WebResult.buildFail("新增会员信息失败", e.getErrorMsg());
         } catch (MyBatisSystemException exception) {
@@ -139,7 +137,7 @@ public class MemberManageServiceImpl implements MemberManageService {
         } catch (BizException e) {
             return WebResult.buildFail("查询失败", e.getErrorMsg());
         }
-        return WebResult.buildSucc("查询成功","200",resultList);
+        return WebResult.buildSucc("查询成功", "200", resultList);
     }
 
     @Override

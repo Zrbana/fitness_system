@@ -32,7 +32,7 @@ public class MemberDataServiceUnitTests extends BaseTestNGTestCase {
     @Test(description = "向user表插入数据")
     public void testInsertMethod() {
         User user = new User();
-        user.setName("小仔仔");
+        user.setName("泡泡龙");
         user.setBeginTime(LocalDate.now());
         user.setEndTime(LocalDate.now().plusWeeks(1L));
         user.setCardNum(FitnessDefaultUtils.randomCardNum("zk"));

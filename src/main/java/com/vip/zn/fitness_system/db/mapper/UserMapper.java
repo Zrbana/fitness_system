@@ -22,4 +22,6 @@ public interface UserMapper {
     List<User> selectByPhone(String name);
 
     List<User> selectByCardNum(String name);
+
+    int insertOrUpdate(User user);
 }

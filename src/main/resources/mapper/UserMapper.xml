@@ -162,4 +162,27 @@
         where `card_num` = #{card_num,jdbcType=VARCHAR}
         order by id desc
     </select>
+    <update id="insertOrUpdate" parameterType="com.vip.zn.fitness_system.db.model.User">
+        insert into user (`id`,
+                          `name`,
+                          `gender`,
+                          `begin_time`,
+                          `end_time`,
+                          `card_type`,
+                          `phone_number`,
+                          `card_num`,
+                          `is_expired`)
+        values (#{name,jdbcType=VARCHAR},
+                #{gender,jdbcType=TINYINT},
+                #{beginTime,jdbcType=DATE},
+                #{endTime,jdbcType=DATE},
+                #{cardType,jdbcType=TINYINT},
+                #{phoneNumber,jdbcType=VARCHAR},
+                #{cardNum,jdbcType=VARCHAR},
+                #{isExpired,jdbcType=TINYINT})
+        on DUPLICATE KEY UPDATE name    = #{name,jdbcType=VARCHAR},
+                                phone_number  = #{phoneNumber,jdbcType=VARCHAR},
+                                card_num = #{cardNum,jdbcType=VARCHAR}
+    </update>
+
 </mapper>

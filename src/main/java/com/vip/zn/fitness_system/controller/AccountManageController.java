@@ -39,8 +39,15 @@ public class AccountManageController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ApiOperation("登录")
     @ResponseBody
-    public WebResult login(@Validated @RequestBody AccountDto accountDto, HttpServletResponse response) {
+    public WebResult login(@Validated @RequestBody AccountDto accountDto,HttpServletResponse response) {
         return memberManageService.login(accountDto,response);
+    }
+
+    @RequestMapping(value = "/enroll", method = RequestMethod.POST)
+    @ApiOperation("注册")
+    @ResponseBody
+    public WebResult enroll(AccountDto accountDto){
+        return  memberManageService.enroll(accountDto);
     }
 
     @ApiOperation("登出")

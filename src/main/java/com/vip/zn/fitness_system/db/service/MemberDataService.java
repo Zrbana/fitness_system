@@ -16,4 +16,6 @@ public interface MemberDataService {
     List<User> selectByCardNum(String cardNum);
 
     User selectById(Integer id);
+
+    int insertOrUpdate(User user);
 }

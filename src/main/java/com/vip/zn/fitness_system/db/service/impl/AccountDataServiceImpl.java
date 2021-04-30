@@ -25,7 +25,7 @@ public class AccountDataServiceImpl implements AccountDataService{
     }
 
     @Override
-    public int insert(Account account) {
-        return accountMapper.insert(account);
+    public int insertSelective(Account account) {
+        return accountMapper.insertSelective(account);
     }
 }

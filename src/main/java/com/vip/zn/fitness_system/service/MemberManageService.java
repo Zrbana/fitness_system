@@ -15,7 +15,7 @@ public interface MemberManageService {
     /**
      * 登录
      */
-    WebResult login(AccountDto accountDto, HttpServletResponse response);
+    WebResult login(AccountDto accountDto,HttpServletResponse response);
 
     /**
      * 注册
@@ -25,7 +25,7 @@ public interface MemberManageService {
     /**
      * 新增会员信息
      */
-    WebResult addUser(AddUserInfoReq req);
+    WebResult addOrUpdateUser(AddUserInfoReq req);
 
     /**
      * 更新会员信息

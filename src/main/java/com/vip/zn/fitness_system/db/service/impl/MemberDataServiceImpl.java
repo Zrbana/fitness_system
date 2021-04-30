@@ -51,4 +51,9 @@ public class MemberDataServiceImpl implements MemberDataService {
         return userMapper.selectByPrimaryKey(id);
     }
 
+    @Override
+    public int insertOrUpdate(User user) {
+        return userMapper.insertOrUpdate(user);
+    }
+
 }

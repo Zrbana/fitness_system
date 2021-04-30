@@ -1,10 +1,12 @@
 package com.vip.zn.fitness_system.AccountManageServiceUnitTests;
 
+import cn.hutool.crypto.SecureUtil;
 import com.vip.zn.fitness_system.BaseTestNGTestCase;
 import com.vip.zn.fitness_system.controller.AccountManageController;
 import com.vip.zn.fitness_system.dto.AccountDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
@@ -45,11 +47,14 @@ public class AccountServiceUnitTest extends BaseTestNGTestCase {
 
     }
 
-    @Test(description = "登录成功")
-    public void testLoginSucc(){
-//
-//        AccountDto accountDto = new AccountDto();
-//        accountDto.setUserName();
-//        adminServiceController.login()
+    @Test(description = "注册")
+    public void testEnrollSucc() {
+        AccountDto accountDto = new AccountDto();
+        accountDto.setUserName("123456");
+        accountDto.setPassword("123456");
+    }
+
+    @Test(description = "登录")
+    public void testLoginSucc() {
     }
 }
