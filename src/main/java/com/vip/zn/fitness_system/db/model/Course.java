@@ -1,11 +1,20 @@
 package com.vip.zn.fitness_system.db.model;
 
+
+import cn.hutool.core.date.DateTime;
+
 public class Course {
     private Integer id;
 
-    private String siteName;
+    private String courseName;
 
-    private Byte status;
+    private DateTime courseBeginTime;
+
+    private DateTime courseEndTime;
+
+    private String teacherId;
+
+    private String teacherName;
 
     public Integer getId() {
         return id;
@@ -15,19 +24,43 @@ public class Course {
         this.id = id;
     }
 
-    public String getSiteName() {
-        return siteName;
+    public String getCourseName() {
+        return courseName;
     }
 
-    public void setSiteName(String siteName) {
-        this.siteName = siteName == null ? null : siteName.trim();
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
-    public Byte getStatus() {
-        return status;
+    public DateTime getCourseBeginTime() {
+        return courseBeginTime;
     }
 
-    public void setStatus(Byte status) {
-        this.status = status;
+    public void setCourseBeginTime(DateTime courseBeginTime) {
+        this.courseBeginTime = courseBeginTime;
+    }
+
+    public DateTime getCourseEndTime() {
+        return courseEndTime;
+    }
+
+    public void setCourseEndTime(DateTime courseEndTime) {
+        this.courseEndTime = courseEndTime;
+    }
+
+    public String getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(String teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    public String getTeacherName() {
+        return teacherName;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
     }
 }

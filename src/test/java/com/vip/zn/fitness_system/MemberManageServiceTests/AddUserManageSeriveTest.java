@@ -23,13 +23,23 @@ public class AddUserManageSeriveTest extends BaseTestNGTestCase {
     @Autowired
     MemberManageController memberManageController;
 
-    @Test(description = "新增成功")
+    @Test(description = "数据库连接异常")
     public void testAddUserMethodCase00(){
         AddUserInfoReq req = new AddUserInfoReq();
-        req.setName("jj");
+        req.setName("kkkk");
         req.setCardType((byte)1);
         req.setGender((byte)1);
+        req.setPhoneNumber("123456");
+        WebResult webResult = memberManageController.addUserInfo(req);
+        Assert.assertEquals(webResult.getMsg(),"数据库连接异常");
+    }
+
+    @Test(description = "正常")
+    public void testAddUserMethodCase01(){
+        AddUserInfoReq req = new AddUserInfoReq();
+        req.setName("kkkk");
         req.setCardType((byte)1);
+        req.setGender((byte)1);
         req.setPhoneNumber("123456");
         WebResult webResult = memberManageController.addUserInfo(req);
         Assert.assertEquals(webResult.getCode(),"200");

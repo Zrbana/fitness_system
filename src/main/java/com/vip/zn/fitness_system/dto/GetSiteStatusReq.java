@@ -10,5 +10,7 @@ import lombok.Data;
  */
 
 @Data
-public class GetSiteStatusReq extends SiteDto{
+public class GetSiteStatusReq {
+    private String siteName;
+    private Integer status;
 }

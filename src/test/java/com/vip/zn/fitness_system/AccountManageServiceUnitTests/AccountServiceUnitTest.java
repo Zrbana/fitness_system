@@ -1,6 +1,9 @@
 package com.vip.zn.fitness_system.AccountManageServiceUnitTests;
 
 import com.vip.zn.fitness_system.BaseTestNGTestCase;
+import com.vip.zn.fitness_system.controller.AccountManageController;
+import com.vip.zn.fitness_system.dto.AccountDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.testng.annotations.Test;
 
@@ -13,6 +16,10 @@ import org.testng.annotations.Test;
 
 @SpringBootTest
 public class AccountServiceUnitTest extends BaseTestNGTestCase {
+
+    @Autowired
+    AccountManageController adminServiceController;
+
     @Test(description = "账号或密码为空")
     public void testLoginCase01() {
 
@@ -36,5 +43,13 @@ public class AccountServiceUnitTest extends BaseTestNGTestCase {
     @Test(description = "正常退出登陆")
     public void testLogoutCase01() {
 
+    }
+
+    @Test(description = "登录成功")
+    public void testLoginSucc(){
+//
+//        AccountDto accountDto = new AccountDto();
+//        accountDto.setUserName();
+//        adminServiceController.login()
     }
 }

@@ -1,6 +1,7 @@
 package com.vip.zn.fitness_system.db.mapper;
 
 import com.vip.zn.fitness_system.db.model.Coach;
+import com.vip.zn.fitness_system.db.model.Course;
 
 import java.util.List;
 
@@ -22,4 +23,7 @@ public interface CoachMapper {
     List<Coach> selectByCoachId(String coachId);
 
     List<Coach> selectByCoachPhone(String coachPhone);
+
+    //根据coachName得到coachId
+    Coach selectIdByName(String coachName);
 }

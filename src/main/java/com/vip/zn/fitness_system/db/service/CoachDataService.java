@@ -14,17 +14,19 @@ import java.util.List;
 
 
 public interface CoachDataService {
-    public int insertSelective(Coach coach);
+    int insertSelective(Coach coach);
 
-    public int updateSelective(Coach coach);
+    int updateSelective(Coach coach);
 
-    public List<Coach> selectByName(String name);
+    List<Coach> selectByName(String name);
 
-    public List<Coach> selectByPhone(String phoneNum);
+    List<Coach> selectByPhone(String phoneNum);
 
-    public List<Coach> selectByCoachId(String coachId);
+    List<Coach> selectByCoachId(String coachId);
 
-    public Coach selectById(Integer id);
+    Coach selectById(Integer id);
 
-    public int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Integer id);
+
+    Coach selectIdByName(String coachName);
 }

@@ -15,6 +15,13 @@
     from account
     where id = #{id,jdbcType=INTEGER}
   </select>
+<!--  自定义查询语句(根据userName查询)-->
+  <select id="selectByUserName" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from account
+    where `username` = #{username,jdbcType=VARCHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from account
     where id = #{id,jdbcType=INTEGER}

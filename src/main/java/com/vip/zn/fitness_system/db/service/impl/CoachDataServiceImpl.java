@@ -56,4 +56,9 @@ public class CoachDataServiceImpl implements CoachDataService {
     public int deleteByPrimaryKey(Integer id) {
         return coachMapper.deleteByPrimaryKey(id);
     }
+
+    @Override
+    public Coach selectIdByName(String coachName) {
+        return coachMapper.selectIdByName(coachName);
+    }
 }

@@ -2,12 +2,12 @@ package com.vip.zn.fitness_system.service;
 
 
 import com.vip.zn.fitness_system.common.WebResult;
-import com.vip.zn.fitness_system.db.model.Account;
+import com.vip.zn.fitness_system.dto.AccountDto;
 import com.vip.zn.fitness_system.dto.AddUserInfoReq;
-import com.vip.zn.fitness_system.dto.GetUserInfoByNameReq;
-import com.vip.zn.fitness_system.dto.GetUserInfoByPhoneNumReq;
-import com.vip.zn.fitness_system.dto.GetUserInfoByCardNumReq;
+import com.vip.zn.fitness_system.dto.UserDto;
 import org.springframework.stereotype.Service;
+
+import javax.servlet.http.HttpServletResponse;
 
 @Service
 public interface MemberManageService {
@@ -15,12 +15,12 @@ public interface MemberManageService {
     /**
      * 登录
      */
-    void login(Account account);
+    WebResult login(AccountDto accountDto, HttpServletResponse response);
 
     /**
      * 注册
      */
-    void enroll(Account account);
+    WebResult enroll(AccountDto accountDto);
 
     /**
      * 新增会员信息
@@ -30,7 +30,7 @@ public interface MemberManageService {
     /**
      * 更新会员信息
      */
-    WebResult updateUserInfo(GetUserInfoByPhoneNumReq req);
+    WebResult updateUserInfo(UserDto userDto);
 
     /**
      * 根据姓名模糊查询用户信息列表
