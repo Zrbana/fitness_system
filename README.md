@@ -19,6 +19,10 @@
 |          | 生成未来一周的课表总览      | 生成未来一周的课表总览                                       |
 |          | 系统首页显示当天的课程信息  | 系统首页显示当天的课程信息                                   |
 
+
+## 原型图
+![Image text](https://github.com/Zrbana/fitness_system/blob/master/src/main/resources/picture/%E4%BC%9A%E5%91%98%E4%BF%A1%E6%81%AF%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2.png)
 ## others       
 ##### swagger接口调试地址：localhost:8080/swagger-ui/index.html
 ##### 表结构：com.vip.zn.fitness_system.dbgenerator.sql.createTableInfo.sql
+
